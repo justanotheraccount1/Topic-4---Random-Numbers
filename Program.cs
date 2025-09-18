@@ -46,17 +46,23 @@
             Console.WriteLine();
 
 
-
+            int decimals;
             double decimal1, decimal2, decimal3;
             decimal1 = random.NextDouble();
             decimal2 = random.NextDouble();
             decimal3 = random.NextDouble();
+            Console.WriteLine("Enter the number of decimal places the following results should be rounded to:");
+            while(!Int32.TryParse(Console.ReadLine(), out decimals))
+            {
+                Console.WriteLine("That is an invalid imput. Try Again:");
+            }
             decimal1 = Math.Round(decimal1, 2);
             decimal2 = Math.Round(decimal2, 2);
             decimal3 = Math.Round(decimal3, 2);
             decimal1 = decimal1 + minValue;
             decimal2 = decimal2 + minValue;
             decimal3 = decimal3 + minValue;
+
             Console.WriteLine($"Three decimal values between {minValue} and {maxValue} will now be generated...");
             Console.WriteLine($"Your numbers are {decimal1}, {decimal2}, and {decimal3}");
 
