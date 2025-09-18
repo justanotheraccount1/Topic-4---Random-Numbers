@@ -52,16 +52,16 @@
             decimal2 = random.NextDouble();
             decimal3 = random.NextDouble();
             Console.WriteLine("Enter the number of decimal places the following results should be rounded to:");
-            while(!Int32.TryParse(Console.ReadLine(), out decimals))
+            while(!Int32.TryParse(Console.ReadLine(), out decimals) || (decimals >= 16))
             {
                 Console.WriteLine("That is an invalid imput. Try Again:");
             }
-            decimal1 = Math.Round(decimal1, 2);
-            decimal2 = Math.Round(decimal2, 2);
-            decimal3 = Math.Round(decimal3, 2);
-            decimal1 = decimal1 + minValue;
-            decimal2 = decimal2 + minValue;
-            decimal3 = decimal3 + minValue;
+            decimal1 = Math.Round(decimal1, decimals);
+            decimal2 = Math.Round(decimal2, decimals);
+            decimal3 = Math.Round(decimal3, decimals);
+            decimal1 = decimal1 + random.Next(minValue,maxValue);
+            decimal2 = decimal2 + random.Next(minValue, maxValue);
+            decimal3 = decimal3 + random.Next(minValue, maxValue);
 
             Console.WriteLine($"Three decimal values between {minValue} and {maxValue} will now be generated...");
             Console.WriteLine($"Your numbers are {decimal1}, {decimal2}, and {decimal3}");
